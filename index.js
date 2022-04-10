@@ -35,9 +35,13 @@ drawCardBtn.addEventListener("click", () => {
             const winnerText = determineCardWinner(data.cards[0], data.cards[1])
             header.textContent = winnerText
             
-            if (data.remaining === 0) {
+            if (data.remaining === 0 && computerScore > myScore) {
                 drawCardBtn.disabled = true
-            }
+                header.textContent= `The Computer won by ${computerScore} against ${myScore} 🥲`
+            } else if (data.remaining === 0 && computerScore < myScore) {
+                drawCardBtn.disabled = true
+                header.textContent= `I won by ${myScore} against ${computerScore} 😁`
+            } 
         })
 })
 
